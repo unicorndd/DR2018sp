@@ -22,10 +22,20 @@ public class DR2018spDemo1 {
         x.load();
         System.out.println("Line of Code = " + x.getLines());
         HashMap<String, Integer> tokenCount = x.getTokenCount();
-        for(String key : tokenCount.keySet()){
-            System.out.println(key + "\t\t" + tokenCount.get(key));
-        }
+        //for(String key : tokenCount.keySet()){
+        //    System.out.println(key + "\t\t" + tokenCount.get(key));
+        //}
         System.out.println("Entropy = " + x.entropy());
+        System.out.println("Volume = " + x.volume());
+        
+        GSRM g = new GSRM(path);
+        g.load();
+        //System.out.println(g.getLiteralLength());
+        //System.out.println(g.getCodeLength());
+        System.out.println("Numeric Literals Frequency : " + g.getLiteralFre());
+        System.out.println("Ext. of Alig. blocks : " + g.getAlignedBlockExt());
+        //System.out.println(g.getLinesOfCode());
+        g.showAlignedBlocks();
     }
     
 }
