@@ -19,12 +19,13 @@ import java.util.HashMap;
 public class GSRM {
     private String path = "";
     private String REG  = "[=><]";
-    private String REG1 = "\\b\\d+\\b";
+    private String REG1 = "(\\b|\\b0x)\\d+(\\.\\d+)?([e|E]-?\\d+(\\.\\d+)?)?(\\b|f|F|d|D)";
     private int literalLength = 0;
     private int codeLength = 0;
     private int alignedBlockExt = 0;
     private int codeLines = 0;
     private HashMap<Integer, Integer>line_size = new HashMap<Integer, Integer>();
+    private HashMap<String, Integer>literal = new HashMap<String, Integer>();
     
     public GSRM(String s){
         path = s;
@@ -46,6 +47,11 @@ public class GSRM {
                 codeLength += line.length();
                 Matcher m1 = p1.matcher(line);
                 while(m1.find()){
+                    String tmpLiter = m1.toMatchResult().group();
+                    if(literal.containsKey(tmpLiter))
+                        literal.put(tmpLiter, literal.get(tmpLiter)+1);
+                    else
+                        literal.put(tmpLiter, 1);
                     literalLength += m1.end() - m1.start();
                 }
                 Matcher m = p.matcher(line);
@@ -96,9 +102,19 @@ public class GSRM {
         return codeLines;
     }
     
+    public void showLiterals(){
+        float total = 0;
+        for(int value : literal.values())
+            total += value;
+        System.out.println("Literals (Freq)");
+        for(String key : literal.keySet()){
+            System.out.printf("%-20s%5d\t%8f\n", key, literal.get(key), literal.get(key) / total);
+        }
+    }
+    
     public void showAlignedBlocks(){
         for(int key : line_size.keySet()){
-            System.out.println("Start line : " + key + "\t\tExtent : " + line_size.get(key));
+            System.out.printf("Start line : %5d\tExtent : %3d\n", key, line_size.get(key));
         }
     }
     

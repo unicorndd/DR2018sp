@@ -173,3 +173,16 @@ public class CodeStatistics {
         return ProgramLength * Math.log(ProgramVocabulary) / Math.log(2);
     }
 }
+/*
+0.142857
+532.123
+0x123.02
+6598f
+36.2E-236.2
+decimalNumber = 89d;
+decimalNumber = 0.5;
+decimalNumber = 10f;
+decimalNumber = 3.14159e0;
+decimalNumber = 2.71845D;
+decimalNumber = 1.0e-6D;
+*/

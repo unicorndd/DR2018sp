@@ -32,10 +32,11 @@ public class DR2018spDemo1 {
         g.load();
         //System.out.println(g.getLiteralLength());
         //System.out.println(g.getCodeLength());
-        System.out.println("Numeric Literals Frequency : " + g.getLiteralFre());
+        //System.out.println("Numeric Literals Frequency : " + g.getLiteralFre());
         System.out.println("Ext. of Alig. blocks : " + g.getAlignedBlockExt());
         //System.out.println(g.getLinesOfCode());
         g.showAlignedBlocks();
+        g.showLiterals();
     }
     
 }
