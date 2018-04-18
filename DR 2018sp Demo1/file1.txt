@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+
+
+
 package dr.pkg2018sp.demo1;
 
-/**
- *
- * @author unico
- */
+
+
+
+
 import java.util.HashMap;
 import java.io.*;
 import java.util.Scanner;
@@ -16,22 +16,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.MatchResult;
 import java.lang.Math;
-/*aoicsa        ascom           aspx */
+
 public class CodeStatistics {
     private String path = "";
     private int lines = 0;
     private HashMap<String, Integer> hmp = new HashMap<String, Integer>();
-    private HashMap<String, Integer> opr = new HashMap<String, Integer>();
+    private HashMap<String, Integer>
     private HashMap<String, Integer> opd = new HashMap<String, Integer>();
-    private String REG  = "\\w*[A-Za-z_]\\w*";                                  // REG, token, parameters
-    private String REG1 = "^\\s*//";                                            // REG, lines begin with "//"
-    private String REG2 = "^\\s*/\\*";                                          // REG, lines begin with "/*"
-    private String REG3 = "\\*/\\s*$";                                          // REG, lines end with "*/"
-    private String REG4 = "/\\*";                                               // REG, comments begin with "/*"
-    private String REG5 = "\\*/";                                               // REG, comments end with "*/"
-    private String REG6 = "[A-Za-z_]\\w*\\s*\\(";                               // REG, operators
+    private String REG  = "\\w*[A-Za-z_]\\w*";                                  
+    private String REG1 = "^\\s*//";                                            
+    private String REG2 = "^\\s*/\\*";                                          
+    private String REG3 = "\\*/\\s*$";                                          
+    private String REG4 = "/\\*";                                               
+    private String REG5 = "\\*/";                                               
+    private String REG6 = "[A-Za-z_]\\w*\\s*\\(";                               
     private String REG7 = "\\((\\s*\\w*[A-Za-z_]\\w*\\s*\\,)*(\\s*\\w*[A-Za-z_]\\w*\\s*){0,1}\\)";
-                                                                                // REG, operands
+
     
     public CodeStatistics(String p){
         path = p;
@@ -173,16 +173,16 @@ public class CodeStatistics {
         return ProgramLength * Math.log(ProgramVocabulary) / Math.log(2);
     }
 }
-/*
-0.142857
-532.123
-0x123.02
-6598f
-36.2E-236.2
-decimalNumber = 89d;
-decimalNumber = 0.5;
-decimalNumber = 10f;
-decimalNumber = 3.14159e0;
-decimalNumber = 2.71845D;
-decimalNumber = 1.0e-6D;
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
